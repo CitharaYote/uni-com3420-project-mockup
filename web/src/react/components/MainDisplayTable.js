@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MUS6025, MUS6026, MUS6080, MUS6090 } from "../../data";
 
 const MainDisplayTable = (p) => {
   const [selectedModule, setSelectedModule] = useState(0);
+  const [filteredData, setFilteredData] = useState(p.data[selectedModule].data);
+
+  useEffect(() => {
+    setFilteredData(p.data[selectedModule].data);
+  }, [selectedModule]);
   //   console.log(p.data);
 
   const getModuleCode = (data) => {
@@ -17,24 +22,66 @@ const MainDisplayTable = (p) => {
   return (
     <div className={`${p.className}`}>
       <div className="flex flex-row items-center justify-between">
-        <p className="text-lg">
-          Viewing{" "}
-          <span className="font-bold">
-            {p.data[selectedModule].data.length}
-          </span>{" "}
-          student
-          {p.data[selectedModule].data.length === 1 ? "" : "s"}
-        </p>
-        <select
-          className="border-2 border-gray-300 bg-white h-10 pl-5 pr-10 rounded-lg text-sm focus:outline-none"
-          onChange={(e) => setSelectedModule(e.target.value)}
-        >
-          {p.data.map((module, index) => (
-            <option value={index} key={index}>
-              {getModuleCode(module)}
-            </option>
-          ))}
-        </select>
+        <div className="flex flex-row items-center">
+          <p className="text-lg">
+            Viewing <span className="font-bold">{filteredData.length}</span>{" "}
+            student
+            {filteredData.length === 1 ? "" : "s"}
+          </p>
+          <input
+            // className=" ml-4"
+            className="border-2 border-gray-300 bg-white h-10 w-36 px-2 py-4 rounded-lg text-sm focus:outline-none ml-4"
+            // type="search"
+            name="search"
+            placeholder="Search..."
+            onChange={(e) => {
+              const search = e.target.value;
+              const filtered = p.data[selectedModule].data.filter((student) => {
+                return (
+                  student["Surname"]
+                    .toLowerCase()
+                    .includes(search.toLowerCase()) ||
+                  student["Forename"]
+                    .toLowerCase()
+                    .includes(search.toLowerCase()) ||
+                  student["Reg No."]
+                    .toLowerCase()
+                    .includes(search.toLowerCase()) ||
+                  student["Reg. Status"]
+                    .toLowerCase()
+                    .includes(search.toLowerCase()) ||
+                  student["Module Code"]
+                    .toLowerCase()
+                    .includes(search.toLowerCase()) ||
+                  student["1st Grade"]
+                    .toLowerCase()
+                    .includes(search.toLowerCase()) ||
+                  student["2nd Grade"]
+                    .toLowerCase()
+                    .includes(search.toLowerCase())
+                );
+              });
+              setFilteredData(filtered);
+            }}
+          />
+        </div>
+        <div className="flex flex-row items-center">
+          <p className="text-lg mr-2">Department:</p>
+          <select className="border-2 border-gray-300 bg-white h-10 pl-5 pr-10 rounded-lg text-sm focus:outline-none">
+            <option value="">Music</option>
+          </select>
+          <p className="text-lg mr-2 ml-4">Module:</p>
+          <select
+            className="border-2 border-gray-300 bg-white h-10 pl-5 pr-10 rounded-lg text-sm focus:outline-none"
+            onChange={(e) => setSelectedModule(e.target.value)}
+          >
+            {p.data.map((module, index) => (
+              <option value={index} key={index}>
+                {getModuleCode(module)}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <div>
         <table className="table-auto w-full my-4">
@@ -50,7 +97,7 @@ const MainDisplayTable = (p) => {
             </tr>
           </thead>
           <tbody className="">
-            {p.data[selectedModule].data.map((student, index) => (
+            {filteredData.map((student, index) => (
               <tr
                 key={index}
                 className="odd:bg-gray-100 even:bg-white hover:bg-gray-200 transition"
@@ -62,14 +109,22 @@ const MainDisplayTable = (p) => {
                 <td className="border px-4 py-2">{student["Module Code"]}</td>
                 <td
                   className={`border px-4 py-2 ${
-                    student["1st Grade"] < 40 ? "bg-red-200" : ""
+                    isNaN(student["1st Grade"]) && student["1st Grade"] !== "-"
+                      ? "bg-yellow-200"
+                      : student["1st Grade"] < 40
+                      ? "bg-red-200"
+                      : ""
                   }`}
                 >
                   {student["1st Grade"]}
                 </td>
                 <td
                   className={`border px-4 py-2 ${
-                    student["2nd Grade"] < 40 ? "bg-red-200" : ""
+                    isNaN(student["2nd Grade"]) && student["2nd Grade"] !== "-"
+                      ? "bg-yellow-200"
+                      : student["2nd Grade"] < 40
+                      ? "bg-red-200"
+                      : ""
                   }`}
                 >
                   {student["2nd Grade"]}

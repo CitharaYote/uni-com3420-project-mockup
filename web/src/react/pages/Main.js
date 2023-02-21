@@ -6,7 +6,7 @@ const Main = (p) => {
   const [user, setUser] = useState(null);
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-slate-900 via-purple-900 to-slate-900 w-screen py-24">
+    <div className="min-h-screen bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-slate-900 via-purple-900 to-slate-900 w-full py-24">
       <Header className="z-10" userState={{ user, setUser }} />
       <div className="">
         {user ? (
