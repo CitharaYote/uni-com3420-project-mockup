@@ -120,12 +120,12 @@ const MainDisplay = (p) => {
         <p className="text-4xl font-bold text-gray-700">
           WMG Calculator Prototype
         </p>
-        <div className="flex flex-row items-center space-x-4">
+        <div className="flex flex-col justify-center space-x-4 sm:flex-row sm:items-center">
           <button
             className="p-4 text-white transition rounded-lg w-36 bg-uospurple hover:bg-opacity-70 drop-shadow hover:drop-shadow-lg"
             onClick={readData}
           >
-            <p>+ Add</p>
+            <p>Add</p>
           </button>
           <button
             className="p-4 text-white transition rounded-lg w-36 bg-uospurple hover:bg-opacity-70 drop-shadow hover:drop-shadow-lg"
