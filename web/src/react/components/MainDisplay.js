@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Papa from "papaparse";
 import { MUS642, MUS6025, MUS6026, MUS6080, MUS6090 } from "../../data";
 import MainDisplayTable from "./MainDisplayTable";
+import MainDisplaySidebar from "./MainDisplaySidebar";
 
 const MainDisplay = (p) => {
   const [data, setData] = useState(null);
@@ -116,21 +117,38 @@ const MainDisplay = (p) => {
   return (
     <div className={`${p.className}`}>
       <div className="flex flex-row justify-between">
-        <p className="text-4xl text-gray-700 font-bold">
+        <p className="text-4xl font-bold text-gray-700">
           WMG Calculator Prototype
         </p>
-        <button
-          className="bg-black text-white p-4 hover:bg-opacity-70 transition rounded-lg drop-shadow hover:drop-shadow-lg"
-          onClick={readData}
-        >
-          <p>Reload Data</p>
-        </button>
+        <div className="flex flex-row items-center space-x-4">
+          <button
+            className="p-4 text-white transition rounded-lg w-36 bg-uospurple hover:bg-opacity-70 drop-shadow hover:drop-shadow-lg"
+            onClick={readData}
+          >
+            <p>+ Add</p>
+          </button>
+          <button
+            className="p-4 text-white transition rounded-lg w-36 bg-uospurple hover:bg-opacity-70 drop-shadow hover:drop-shadow-lg"
+            onClick={readData}
+          >
+            <p>Print</p>
+          </button>
+          <button
+            className="p-4 text-white transition rounded-lg w-36 bg-uospurple hover:bg-opacity-70 drop-shadow hover:drop-shadow-lg"
+            onClick={readData}
+          >
+            <p>Overview</p>
+          </button>
+        </div>
       </div>
       <hr className="my-8" />
       {loading ? (
-        <p className="text-gray-400 font-bold text-2xl">Loading...</p>
+        <p className="text-2xl font-bold text-gray-400">Loading...</p>
       ) : (
-        <MainDisplayTable data={data} />
+        <div className="flex flex-row">
+          <MainDisplayTable data={data} className="w-5/6" />
+          <MainDisplaySidebar data={data} className="w-1/6" />
+        </div>
       )}
     </div>
   );

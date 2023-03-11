@@ -29,8 +29,8 @@ const MainDisplayTable = (p) => {
             {filteredData.length === 1 ? "" : "s"}
           </p>
           <input
-            // className=" ml-4"
-            className="border-2 border-gray-300 bg-white h-10 w-36 px-2 py-4 rounded-lg text-sm focus:outline-none ml-4"
+            // className="ml-4 "
+            className="h-10 px-2 py-4 ml-4 text-sm bg-white border-2 border-gray-300 rounded-lg w-36 focus:outline-none"
             // type="search"
             name="search"
             placeholder="Search..."
@@ -66,13 +66,13 @@ const MainDisplayTable = (p) => {
           />
         </div>
         <div className="flex flex-row items-center">
-          <p className="text-lg mr-2">Department:</p>
-          <select className="border-2 border-gray-300 bg-white h-10 pl-5 pr-10 rounded-lg text-sm focus:outline-none">
+          <p className="mr-2 text-lg">Department:</p>
+          <select className="h-10 pl-5 pr-10 text-sm bg-white border-2 border-gray-300 rounded-lg focus:outline-none">
             <option value="">Music</option>
           </select>
-          <p className="text-lg mr-2 ml-4">Module:</p>
+          <p className="ml-4 mr-2 text-lg">Program:</p>
           <select
-            className="border-2 border-gray-300 bg-white h-10 pl-5 pr-10 rounded-lg text-sm focus:outline-none"
+            className="h-10 pl-5 pr-10 text-sm bg-white border-2 border-gray-300 rounded-lg focus:outline-none"
             onChange={(e) => setSelectedModule(e.target.value)}
           >
             {p.data.map((module, index) => (
@@ -84,29 +84,29 @@ const MainDisplayTable = (p) => {
         </div>
       </div>
       <div>
-        <table className="table-auto w-full my-4">
+        <table className="w-full my-4 table-auto">
           <thead className="bg-gray-300">
             <tr>
-              <th className="px-4 py-2">Surname</th>
-              <th className="px-4 py-2">Forename</th>
               <th className="px-4 py-2">Reg No.</th>
-              <th className="px-4 py-2">Reg. Status</th>
-              <th className="px-4 py-2">Module Code</th>
-              <th className="px-4 py-2">1st Grade</th>
-              <th className="px-4 py-2">2nd Grade</th>
+              <th className="px-4 py-2">{`{Module} - 40Cr`}</th>
+              <th className="px-4 py-2">{`{Module} - 40Cr`}</th>
+              <th className="px-4 py-2">{`{Module} - 50Cr`}</th>
+              <th className="px-4 py-2">{`{Module} - 50Cr`}</th>
+              <th className="px-4 py-2">WMG</th>
+              {/* <th className="px-4 py-2"></th> */}
             </tr>
           </thead>
           <tbody className="">
             {filteredData.map((student, index) => (
               <tr
                 key={index}
-                className="odd:bg-gray-100 even:bg-white hover:bg-gray-200 transition"
+                className="transition odd:bg-gray-100 even:bg-white hover:bg-gray-200"
               >
-                <td className="border px-4 py-2">{student["Surname"]}</td>
-                <td className="border px-4 py-2">{student["Forename"]}</td>
-                <td className="border px-4 py-2">{student["Reg No."]}</td>
-                <td className="border px-4 py-2">{student["Reg. Status"]}</td>
-                <td className="border px-4 py-2">{student["Module Code"]}</td>
+                <td className="px-4 py-2 border">{student["Surname"]}</td>
+                <td className="px-4 py-2 border">{student["Forename"]}</td>
+                <td className="px-4 py-2 border">{student["Reg No."]}</td>
+                <td className="px-4 py-2 border">{student["Reg. Status"]}</td>
+                <td className="px-4 py-2 border">{student["Module Code"]}</td>
                 <td
                   className={`border px-4 py-2 ${
                     isNaN(student["1st Grade"]) && student["1st Grade"] !== "-"
@@ -118,7 +118,7 @@ const MainDisplayTable = (p) => {
                 >
                   {student["1st Grade"]}
                 </td>
-                <td
+                {/* <td
                   className={`border px-4 py-2 ${
                     isNaN(student["2nd Grade"]) && student["2nd Grade"] !== "-"
                       ? "bg-yellow-200"
@@ -128,7 +128,7 @@ const MainDisplayTable = (p) => {
                   }`}
                 >
                   {student["2nd Grade"]}
-                </td>
+                </td> */}
               </tr>
             ))}
           </tbody>

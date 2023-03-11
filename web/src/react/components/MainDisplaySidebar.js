@@ -1,0 +1,106 @@
+const MainDisplaySidebar = (p) => {
+  return (
+    <div className={`${p.className} bg-gray-200 ml-8 rounded-lg p-4 mb-4`}>
+      <div className="flex flex-col">
+        <p className="text-2xl font-bold text-gray-700">Module List</p>
+        <hr className="my-4" />
+        <input
+          type="text"
+          className="h-10 px-2 py-4 mb-2 text-sm bg-white border-2 border-gray-300 rounded-lg focus:outline-none"
+          placeholder="Search..."
+        />
+        <button className="px-4 py-2 text-white transition rounded-lg shadow bg-uospurple hover:bg-opacity-70 hover:shadow-lg">
+          Select All
+        </button>
+        <div className="mt-8 overflow-y-auto max-h-96">
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">MUS642</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">MUS6025</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">MUS6026</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">MUS6080</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">MUS6090</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">COM1001</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">COM1002</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">COM1003</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">COM1005</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">COM1006</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">COM1008</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">COM1009</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">COM2004</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">COM2008</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">COM2009</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">COM2107</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">COM2108</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">COM2109</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">COM3420</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">FCE1001</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+          <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
+            <p className="font-bold text-gray-700">FCE2001</p>
+            <input type="checkbox" className="w-6 h-6"></input>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MainDisplaySidebar;
