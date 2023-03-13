@@ -1,9 +1,12 @@
+import { AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { MUS6025, MUS6026, MUS6080, MUS6090 } from "../../data";
+import StudentModal from "./StudentModal";
 
 const MainDisplayTable = (p) => {
   const [selectedModule, setSelectedModule] = useState(0);
   const [filteredData, setFilteredData] = useState(p.data[selectedModule].data);
+  const [focusStudent, setFocusStudent] = useState(null);
 
   useEffect(() => {
     setFilteredData(p.data[selectedModule].data);
@@ -21,7 +24,7 @@ const MainDisplayTable = (p) => {
   };
   return (
     <div className={`${p.className}`}>
-      <div className="flex flex-row items-center justify-between">
+      <div className="flex flex-row items-start justify-between">
         <div className="flex flex-row items-center">
           <p className="text-lg">
             Viewing <span className="font-bold">{filteredData.length}</span>{" "}
@@ -65,22 +68,27 @@ const MainDisplayTable = (p) => {
             }}
           />
         </div>
-        <div className="flex flex-row items-center">
-          <p className="mr-2 text-lg">Department:</p>
-          <select className="h-10 pl-5 pr-10 text-sm bg-white border-2 border-gray-300 rounded-lg focus:outline-none">
-            <option value="">Music</option>
-          </select>
-          <p className="ml-4 mr-2 text-lg">Program:</p>
-          <select
-            className="h-10 pl-5 pr-10 text-sm bg-white border-2 border-gray-300 rounded-lg focus:outline-none"
-            onChange={(e) => setSelectedModule(e.target.value)}
-          >
-            {p.data.map((module, index) => (
-              <option value={index} key={index}>
-                {getModuleCode(module)}
-              </option>
-            ))}
-          </select>
+        <div>
+          <div className="flex flex-row items-center">
+            <p className="mr-2 text-lg">Department:</p>
+            <select className="h-10 pl-5 pr-10 text-sm bg-white border-2 border-gray-300 rounded-lg focus:outline-none">
+              <option value="">Music</option>
+            </select>
+            <p className="ml-4 mr-2 text-lg">Program:</p>
+            <select
+              className="h-10 pl-5 pr-10 text-sm bg-white border-2 border-gray-300 rounded-lg focus:outline-none"
+              onChange={(e) => setSelectedModule(e.target.value)}
+            >
+              {p.data.map((module, index) => (
+                <option value={index} key={index}>
+                  {getModuleCode(module)}
+                </option>
+              ))}
+            </select>
+          </div>
+          <p className="mt-2 text-sm italic text-right text-gray-500">
+            Click on a student for more information!
+          </p>
         </div>
       </div>
       <div>
@@ -100,7 +108,8 @@ const MainDisplayTable = (p) => {
             {filteredData.map((student, index) => (
               <tr
                 key={index}
-                className="transition odd:bg-gray-100 even:bg-white hover:bg-gray-200"
+                className="transition cursor-pointer odd:bg-gray-100 even:bg-white hover:bg-gray-200"
+                onClick={() => setFocusStudent(student)}
               >
                 <td className="px-4 py-2 border">{student["Surname"]}</td>
                 <td className="px-4 py-2 border">{student["Forename"]}</td>
@@ -134,6 +143,18 @@ const MainDisplayTable = (p) => {
           </tbody>
         </table>
       </div>
+      {/* <AnimatePresence>
+        {focusStudent && (
+          <StudentModal
+            focusStudent={focusStudent}
+            setFocusStudent={setFocusStudent}
+          />
+        )}
+      </AnimatePresence> */}
+      <StudentModal
+        focusStudent={focusStudent}
+        setFocusStudent={setFocusStudent}
+      />
     </div>
   );
 };

@@ -1,9 +1,13 @@
 const MainDisplaySidebar = (p) => {
   return (
-    <div className={`${p.className} bg-gray-200 ml-8 rounded-lg p-4 mb-4`}>
+    <div
+      className={`${p.className} bg-gray-200 ml-8 rounded-lg p-4 ${
+        p.short ? "" : "mb-4"
+      }`}
+    >
       <div className="flex flex-col">
         <p className="text-2xl font-bold text-gray-700">Module List</p>
-        <hr className="my-4" />
+        {p.short ? <hr className="my-2" /> : <hr className="my-4" />}
         <input
           type="text"
           className="h-10 px-2 py-4 mb-2 text-sm bg-white border-2 border-gray-300 rounded-lg focus:outline-none"
@@ -12,7 +16,11 @@ const MainDisplaySidebar = (p) => {
         <button className="px-4 py-2 text-white transition rounded-lg shadow bg-uospurple hover:bg-opacity-70 hover:shadow-lg">
           Select All
         </button>
-        <div className="mt-8 overflow-y-auto max-h-96">
+        <div
+          className={` overflow-y-auto ${
+            p.short ? "max-h-48 mt-3" : "max-h-96 mt-8"
+          }`}
+        >
           <div className="flex flex-row items-center justify-between p-2 m-2 bg-gray-100 rounded-lg shadow hover:shadow-md">
             <p className="font-bold text-gray-700">MUS642</p>
             <input type="checkbox" className="w-6 h-6"></input>
