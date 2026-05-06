@@ -45,9 +45,7 @@ npm run build
 
 ## Deployment
 
-This repository is configured to deploy to GitHub Pages at:
-
-`/com3420-mockup/`
+This repository is configured to deploy to GitHub Pages [here](https://citharayote.github.io/uni-com3420-project-mockup/)!
 
 The deployment workflow is stored in [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml).
 
