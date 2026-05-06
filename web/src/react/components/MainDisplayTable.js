@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import { MUS6025, MUS6026, MUS6080, MUS6090 } from "../../data";
+// import { MUS6025, MUS6026, MUS6080, MUS6090 } from "../../data";
 import StudentModal from "./StudentModal";
 
 const MainDisplayTable = (p) => {

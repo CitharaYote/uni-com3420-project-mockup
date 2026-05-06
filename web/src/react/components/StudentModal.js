@@ -28,7 +28,7 @@ const StudentModal = (p) => {
       <AnimatePresence>
         {p.focusStudent !== null && (
           <motion.div
-            className="fixed w-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg pointer-events-auto top-[20%] left-1/4 overflow-y-auto max-h-[80%]"
+            className="fixed w-2/3 transform -translate-x-1/2 -translate-y-1/2 shadow-lg pointer-events-auto top-[20%] left-[16.666%] overflow-y-auto max-h-[80%]"
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -100 }}
@@ -156,7 +156,7 @@ const StudentModal = (p) => {
                         <td className="px-4 py-2 border">Pass</td>
                       </tr>
                       <tr className="font-bold transition bg-gray-300">
-                        <td className="px-4 py-2">Total</td>
+                        <td className="px-4 py-2">Total | WMG</td>
                         <td className="px-4 py-2">180</td>
                         <td className="px-4 py-2"></td>
                         <td className="px-4 py-2"></td>
