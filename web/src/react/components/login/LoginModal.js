@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+// import { useState } from "react";
 import LoginForm from "./LoginForm";
 // import iconX from "../../../../assets/img/icons/x-lg.svg";
 
@@ -33,7 +33,7 @@ const LoginModal = (p) => {
       }}
     >
       <motion.div
-        className="relative bg-white rounded-lg flex flex-col items-center justify-center z-50 p-4"
+        className="relative z-50 flex flex-col items-center justify-center p-4 bg-white rounded-lg"
         variants={modalVariants}
         initial="closed"
         animate={p.loginOpen ? "open" : "closed"}
@@ -41,15 +41,15 @@ const LoginModal = (p) => {
         transition={transition}
       >
         <button
-          className="absolute right-0 top-0 px-2 text-black h-8 w-8"
+          className="absolute top-0 right-0 w-8 h-8 px-2 text-black"
           onClick={() => {
             p.setLoginOpen(false);
           }}
         >
           <p>X</p>
         </button>
-        <h1 className="text-2xl text-gray-700 font-bold">Login</h1>
-        <hr className="my-4 w-full" />
+        <h1 className="text-2xl font-bold text-gray-700">Login</h1>
+        <hr className="w-full my-4" />
         <p>imagine you login through the uni system here</p>
         <p>just use username & password `admin` for now</p>
         <LoginForm

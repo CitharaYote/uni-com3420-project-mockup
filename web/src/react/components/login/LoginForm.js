@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+// import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
 const LoginForm = (p) => {
@@ -48,7 +48,7 @@ const LoginForm = (p) => {
           type="text"
           placeholder="Username"
           name="username"
-          className="border-2 border-gray-300 rounded-lg p-2 m-2 bg-white w-full"
+          className="w-full p-2 m-2 bg-white border-2 border-gray-300 rounded-lg"
           value={input.username}
           onChange={handleChange}
         />
@@ -56,13 +56,13 @@ const LoginForm = (p) => {
           type="password"
           placeholder="Password"
           name="password"
-          className="border-2 border-gray-300 rounded-lg p-2 m-2 bg-white w-full"
+          className="w-full p-2 m-2 bg-white border-2 border-gray-300 rounded-lg"
           value={input.password}
           onChange={handleChange}
         />
-        {loginError && <p className="text-red-500 text-sm">{loginErrorText}</p>}
+        {loginError && <p className="text-sm text-red-500">{loginErrorText}</p>}
         <button
-          className="bg-sky-700 text-white rounded-lg p-2 m-2 disabled:opacity-50 flex flex-row items-center hover:bg-opacity-70 transition shadow"
+          className="flex flex-row items-center p-2 m-2 text-white transition rounded-lg shadow bg-sky-700 disabled:opacity-50 hover:bg-opacity-70"
           disabled={loginLoading}
           onClick={(e) => {
             e.preventDefault();

@@ -1,4 +1,4 @@
-import { AnimatePresence } from "framer-motion";
+// import { AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 // import { MUS6025, MUS6026, MUS6080, MUS6090 } from "../../data";
 import StudentModal from "./StudentModal";
@@ -10,7 +10,7 @@ const MainDisplayTable = (p) => {
 
   useEffect(() => {
     setFilteredData(p.data[selectedModule].data);
-  }, [selectedModule]);
+  }, [selectedModule, p.data]);
   //   console.log(p.data);
 
   const getModuleCode = (data) => {
@@ -121,8 +121,8 @@ const MainDisplayTable = (p) => {
                     isNaN(student["1st Grade"]) && student["1st Grade"] !== "-"
                       ? "bg-yellow-200"
                       : student["1st Grade"] < 40
-                      ? "bg-red-200"
-                      : ""
+                        ? "bg-red-200"
+                        : ""
                   }`}
                 >
                   {student["1st Grade"]}
